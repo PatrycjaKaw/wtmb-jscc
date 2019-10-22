@@ -1,0 +1,54 @@
+//Car rental where you can rent, return or buy a car.
+
+Car = class {
+    constructor(model, colour, productionDate){
+    this.model = model;
+    this.colour = colour;
+    this.productionDate = productionDate;
+    this.rentiers = []
+    this.buyers = []
+}
+
+}
+
+Customer = class {
+    constructor(name, address){
+    this.name = name;
+    this.address = address;
+    this.rentedCars = []
+    this.boughtCars = []
+    }
+
+rent(car) {
+    this.rentedCars.push(car);
+    car.rentiers.push(this);
+    console.log ("Enjoy your ride with " + car.colour + car.model + ".");
+}
+
+return(car) {
+    this.rentedCars.slice(car);
+    console.log ("Thank you for using our services!");
+}
+buy(car){
+    this.boughtCars.push(car);
+    car.buyers.push(this);
+    console.log ("You are now the lucky owner of " + car.colour + car.model + ".")
+}}
+
+patrycja = new Customer ("Patrycja", "Berlin");
+karin = new Customer ("Karin", "Berlin");
+kate = new Customer ("Kate", "Hamburg");
+joseph = new Customer ("Joseph", "Munich");
+
+car1 = new Car (" Opel", "black", 2000);
+car2 = new Car (" Ford", "blue", 2009);
+car3 = new Car (" Mercedes", "white", 2018);
+
+patrycja.rent(car3);
+karin.rent(car2);
+
+patrycja.return(car3);
+karin.return(car2);
+
+kate.buy(car1);
+joseph.buy(car3);

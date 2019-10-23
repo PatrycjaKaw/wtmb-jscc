@@ -26,7 +26,8 @@ rent(car) {
 }
 
 return(car) {
-    this.rentedCars.slice(car);
+    this.rentedCars.pop(car);
+    car.rentiers.pop(this);
     console.log ("Thank you for using our services!");
 }
 buy(car){
@@ -52,3 +53,4 @@ karin.return(car2);
 
 kate.buy(car1);
 joseph.buy(car3);
+

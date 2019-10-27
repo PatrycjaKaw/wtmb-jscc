@@ -26,8 +26,10 @@ rent(car) {
 }
 
 return(car) {
-    this.rentedCars.pop(car);
-    car.rentiers.pop(this);
+    //this.rentedCars.pop(car);
+    this.rentedCars = this.rentedCars.filter(item => item != car);
+    //car.rentiers.pop(this);
+    car.rentiers = car.rentiers.filter(item => item != this);
     console.log ("Thank you for using our services!");
 }
 buy(car){
@@ -54,3 +56,9 @@ karin.return(car2);
 kate.buy(car1);
 joseph.buy(car3);
 
+
+patrycja.return(car3);
+patrycja.rent(car3);
+karin.rent(car2);
+patrycja.return(car3);
+karin.return(car2);

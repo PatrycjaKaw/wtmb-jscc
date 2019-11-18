@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    h1 The number of customers is #{customers.lenght}
+    each customer in customers
+    p #{customer.name} #{customer.address}

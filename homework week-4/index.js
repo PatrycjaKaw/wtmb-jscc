@@ -12,8 +12,7 @@ app.get("/", (req, res) => {
 
 app.get('/customer/all', async (req, res) => {
   const customers = await CustomerService.findAll()
-  //res.render('customer', { customers })
-  res.render("customer", { customers: customers })
+  res.render("customer", { customers })
 })
 
 app.get('/customer/:id', async (req, res) => {
@@ -30,7 +29,6 @@ app.delete('/customer/:id', async (req, res) => {
   const customer = await CustomerService.del(req.params.id)
   res.send(customer)
 })
-
 
 app.listen(3000, () => {
   console.log("Server listening")
